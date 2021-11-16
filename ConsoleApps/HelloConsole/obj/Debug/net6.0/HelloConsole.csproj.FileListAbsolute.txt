@@ -1,0 +1,15 @@
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/bin/Debug/net6.0/HelloConsole
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/bin/Debug/net6.0/HelloConsole.deps.json
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/bin/Debug/net6.0/HelloConsole.runtimeconfig.json
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/bin/Debug/net6.0/HelloConsole.dll
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/bin/Debug/net6.0/ref/HelloConsole.dll
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/bin/Debug/net6.0/HelloConsole.pdb
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.csproj.AssemblyReference.cache
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.AssemblyInfoInputs.cache
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.AssemblyInfo.cs
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.csproj.CoreCompileInputs.cache
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.dll
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/ref/HelloConsole.dll
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.pdb
+/workspace/dotnet_gitpod/ConsoleApps/HelloConsole/obj/Debug/net6.0/HelloConsole.genruntimeconfig.cache
