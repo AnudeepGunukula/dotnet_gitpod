@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Json.Net;
 using System.Net.Http.Headers;
 using System.Net;
 using System.Net.Http;
@@ -51,7 +52,7 @@ namespace MusicApi.Controllers
 
             string jsontext = @"{ {""context"":{""client"":{""clientName"":""WEB_MUSIC_ANALYTICS"",""clientVersion"":""0.2"",""hl"":""en"",""gl"":""IN"",""experimentIds"":[],""experimentsToken"":"""",""theme"":""MUSIC""},""capabilities"":{},""request"":{""internalExperimentFlags"":[]}},""browseId"":""FEmusic_analytics_charts_home"",""query"":""chart_params_type=WEEK&perspective=CHART&flags=viral_video_chart&selected_chart=TRACKS&chart_params_id=weekly%3A0%3A0%3Ain""} }";
 
-            var jsonobj = JsonConvert.SerializeObject(jsontext);
+            JObject jsonobj = JObject.Parse(jsontext);
             request.Content = new StringContent(jsonobj, null, "application/json");
             request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 

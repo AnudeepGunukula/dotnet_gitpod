@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "psvHi8xP3rP0b1oR8DwHTYc3BEs/RJDviPWWzf4+q8nI0eKtsHMHGRiH8SkzKbz3t+1IDjsS8Q2ONpDfPHUXfg==",
+  "dgSpecHash": "rZhBx7iQoXAtGw5iYnkwhtd5iaroLdD7ZT+vhQrsFPaZWtU29n2L/nIMRnX4oQxOirbxfnzk5C7pOGe1UnhVGg==",
   "success": true,
   "projectFilePath": "/workspace/dotnet_gitpod/WebApis/MusicApi/MusicApi.csproj",
   "expectedPackageFiles": [
     "/home/gitpod/.nuget/packages/htmlagilitypack/1.11.38/htmlagilitypack.1.11.38.nupkg.sha512",
+    "/home/gitpod/.nuget/packages/jobject/1.0.0/jobject.1.0.0.nupkg.sha512",
+    "/home/gitpod/.nuget/packages/json.net/1.0.33/json.net.1.0.33.nupkg.sha512",
     "/home/gitpod/.nuget/packages/microsoft.entityframeworkcore/6.0.0/microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "/home/gitpod/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.0/microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "/home/gitpod/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.0/microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",

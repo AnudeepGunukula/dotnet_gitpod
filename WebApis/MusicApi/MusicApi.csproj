@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="htmlagilitypack" Version="1.11.38" />
+    <PackageReference Include="JObject" Version="1.0.0" />
+    <PackageReference Include="json.net" Version="1.0.33" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />

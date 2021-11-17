@@ -11,6 +11,27 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
+      "JObject/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/JObject.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/JObject.dll": {}
+        }
+      },
+      "Json.Net/1.0.33": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Json.Net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Json.Net.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -351,6 +372,30 @@
         "lib/uap10.0/HtmlAgilityPack.dll",
         "lib/uap10.0/HtmlAgilityPack.pdb",
         "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
+    "JObject/1.0.0": {
+      "sha512": "Z16S56kCKISB54p22yFsB9HKLCTEEEfZGi1NC62sJ7SWDZptcgmO3n6AhiUnOlho6Y8KfKKuNUayG9pIfQ05Hg==",
+      "type": "package",
+      "path": "jobject/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jobject.1.0.0.nupkg.sha512",
+        "jobject.nuspec",
+        "lib/netcoreapp2.0/JObject.dll"
+      ]
+    },
+    "Json.Net/1.0.33": {
+      "sha512": "5tE+db6BqhRAvITIVBeRsQorLGshPExfm4FmMRvWWAfs4RxeTbFFj2PIEybwmMW0qR30HKkXDYhq0YkDK2Jtxw==",
+      "type": "package",
+      "path": "json.net/1.0.33",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "json.net.1.0.33.nupkg.sha512",
+        "json.net.nuspec",
+        "lib/netstandard2.0/Json.Net.dll"
       ]
     },
     "Microsoft.EntityFrameworkCore/6.0.0": {
@@ -878,11 +923,13 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "JObject >= 1.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 6.0.0",
       "Newtonsoft.Json >= 13.0.1",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "System.Json >= 4.7.1",
-      "htmlagilitypack >= 1.11.38"
+      "htmlagilitypack >= 1.11.38",
+      "json.net >= 1.0.33"
     ]
   },
   "packageFolders": {
@@ -922,6 +969,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "JObject": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[6.0.0, )"
@@ -941,6 +992,10 @@
           "htmlagilitypack": {
             "target": "Package",
             "version": "[1.11.38, )"
+          },
+          "json.net": {
+            "target": "Package",
+            "version": "[1.0.33, )"
           }
         },
         "imports": [
