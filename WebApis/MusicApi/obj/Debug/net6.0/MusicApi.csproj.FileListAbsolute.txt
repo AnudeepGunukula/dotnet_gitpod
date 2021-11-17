@@ -28,7 +28,6 @@
 /workspace/dotnet_gitpod/WebApis/MusicApi/obj/Debug/net6.0/ref/MusicApi.dll
 /workspace/dotnet_gitpod/WebApis/MusicApi/obj/Debug/net6.0/MusicApi.pdb
 /workspace/dotnet_gitpod/WebApis/MusicApi/obj/Debug/net6.0/MusicApi.genruntimeconfig.cache
-/workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/top30.json
 /workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/Newtonsoft.Json.dll
 /workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/HtmlAgilityPack.dll
 /workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/System.Json.dll
