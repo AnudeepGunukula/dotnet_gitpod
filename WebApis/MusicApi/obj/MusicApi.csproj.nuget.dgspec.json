@@ -49,6 +49,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Json": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            },
+            "htmlagilitypack": {
+              "target": "Package",
+              "version": "[1.11.38, )"
             }
           },
           "imports": [

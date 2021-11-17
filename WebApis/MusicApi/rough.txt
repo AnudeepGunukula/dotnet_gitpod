@@ -1,0 +1,82 @@
+Host: charts.youtube.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+X-Goog-Visitor-Id: 
+X-YouTube-Client-Name: 31
+X-YouTube-Client-Version: 0.2
+X-YouTube-Utc-Offset: 330
+X-YouTube-Time-Zone: Asia/Kolkata
+X-YouTube-Ad-Signals: dt=1637158518417&flash=0&frm&u_tz=330&u_his=4&u_h=864&u_w=1536&u_ah=824&u_aw=1536&u_cd=24&bc=31&bih=739&biw=685&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C838%2C685%2C739&vis=1&wgl=true&ca_type=image
+Content-Length: 393
+Origin: https://charts.youtube.com
+Alt-Used: charts.youtube.com
+Connection: keep-alive
+Referer: https://charts.youtube.com/charts/TrendingVideos/in
+Cookie: VISITOR_INFO1_LIVE=ZqBNr-WBIr0; PREF=f4=4000000&tz=Asia.Kolkata&f6=40000000; YSC=pqPJe7CsETg; _ga=GA1.2.121605491.1637152004; _gid=GA1.2.1709638638.1637152004; _gat=1
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+Cache-Control: max-age=0
+TE: trailers
+
+
+
+
+
+
+StringContent httpContent = new StringContent(System.IO.File.ReadAllText("top30.json"), null, "application/json");
+            var url = "https://charts.youtube.com/youtubei/v1/browse?alt=json&key=AIzaSyCzEW7JUJdSql0-2V4tHUb6laYm4iAE_dM";
+
+
+            var client = new HttpClient();
+
+            client.DefaultRequestHeaders
+
+
+            var response = await client.PostAsync(url, httpContent);
+
+            var jsonData = response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                string result = jsonData.Result;
+
+                System.IO.File.WriteAllText("output.txt", result);
+            }
+            else
+            {
+                Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+                string result = jsonData.Result;
+
+                System.IO.File.WriteAllText("output.txt", result);
+            }
+
+
+
+
+
+
+
+
+
+
+/youtubei/v1/browse?alt=json&key=AIzaSyCzEW7JUJdSql0-2V4tHUb6laYm4iAE_dM HTTP/3
+Host: charts.youtube.com
+
+
+
+ using (var client = new HttpClient())
+            {
+                person p = new person { name = "Sourav", surname = "Kayal" };
+                client.BaseAddress = new Uri("http://localhost:1565/");
+                var response = client.PostAsJsonAsync("api/person", p).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.Write("Success");
+                }
+                else
+                    Console.Write("Error");
+            }

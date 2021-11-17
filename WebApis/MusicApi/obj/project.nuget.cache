@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fE+UlBB4ajCbgyM17QPUj5ogn5YK9dNpuAZKmgaOyWb3XEiCBp+T/MsI9ABpWk9W1cTYeahIVaw1GOcHm2xgGA==",
+  "dgSpecHash": "psvHi8xP3rP0b1oR8DwHTYc3BEs/RJDviPWWzf4+q8nI0eKtsHMHGRiH8SkzKbz3t+1IDjsS8Q2ONpDfPHUXfg==",
   "success": true,
   "projectFilePath": "/workspace/dotnet_gitpod/WebApis/MusicApi/MusicApi.csproj",
   "expectedPackageFiles": [
+    "/home/gitpod/.nuget/packages/htmlagilitypack/1.11.38/htmlagilitypack.1.11.38.nupkg.sha512",
     "/home/gitpod/.nuget/packages/microsoft.entityframeworkcore/6.0.0/microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "/home/gitpod/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.0/microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "/home/gitpod/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.0/microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
@@ -25,6 +26,7 @@
     "/home/gitpod/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "/home/gitpod/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/home/gitpod/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "/home/gitpod/.nuget/packages/system.json/4.7.1/system.json.4.7.1.nupkg.sha512",
     "/home/gitpod/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
