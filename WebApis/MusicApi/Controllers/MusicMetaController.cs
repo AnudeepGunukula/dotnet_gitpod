@@ -161,7 +161,6 @@ namespace MusicApi.Controllers
         public static string getName(string str)
         {
             string Name = "";
-            string st = "- YouTube<//h3><div class=";
             if (str.Contains("<img alt="))
             {
                 Name = str.Split("<img alt=\"")[1].Split("\"")[0];
