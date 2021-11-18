@@ -25,7 +25,7 @@ namespace MusicApi.Controllers
         }
 
         [HttpPost(Name = "SearchSong")]
-        public async void SearchSong(string songName)
+        public async Task<IActionResult> SearchSong(string songName)
         {
             string url = $"https://www.google.com/search?client=firefox-b-d&q={songName}+song";
             var httpClient = new HttpClient();
@@ -39,7 +39,10 @@ namespace MusicApi.Controllers
             var jsonData = response.Content.ReadAsStringAsync();
             string result = jsonData.Result;
 
-            Search(result);
+            var musiclist = Search(result);
+
+            return Ok(musiclist);
+
         }
 
 
@@ -117,21 +120,60 @@ namespace MusicApi.Controllers
         }
 
 
-        public static void Search(string result)
+        public static List<MusicMeta> Search(string result)
         {
-            System.IO.File.WriteAllText("output.txt", result);
+            List<MusicMeta> musiclist = new List<MusicMeta>();
+
+            List<string> seenId = new List<string>();
             string url = "\"https://www.youtube.com/watch?v=";
             string splitter = $"href={url}";
             string[] arr = result.Split(splitter);
             for (int i = 1; i < arr.Length; i++)
             {
+                string id = arr[i].Split("\"")[0];
+                if (seenId.Contains(id))
+                {
+                    continue;
+                }
+                else
+                {
+                    seenId.Add(id);
+                }
+                url = "https://www.youtube.com/watch?v=" + id;
                 System.IO.File.WriteAllText($"output{i}.txt", arr[i]);
-                if (i == 3)
-                    break;
+                string Name = getName(arr[i]);
+
+
+                string thumbnail = $"https://i.ytimg.com/vi/{id}/maxresdefault.jpg";
+
+                MusicMeta mobj = new MusicMeta();
+                mobj.Url = url;
+                mobj.SongName = Name;
+                mobj.thumbnail = thumbnail;
+                musiclist.Add(mobj);
 
             }
+
+            return musiclist;
         }
 
+
+        public static string getName(string str)
+        {
+            string Name = "";
+            string st = "- YouTube<//h3><div class=";
+            if (str.Contains("<img alt="))
+            {
+                Name = str.Split("<img alt=\"")[1].Split("\"")[0];
+            }
+            else if (str.Contains("aria-label="))
+            {
+                Name = str.Split("aria-label=\"")[1].Split("\"")[0];
+            }
+            return Name;
+        }
     }
+
 }
+
 
