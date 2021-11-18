@@ -7,6 +7,6 @@ public class MusicMeta
 
     public string? SongName { get; set; }
 
-    public string? MovieName { get; set; }
+    public string? thumbnail { get; set; }
 
 }

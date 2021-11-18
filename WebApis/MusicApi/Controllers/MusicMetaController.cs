@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Json.Net;
 using System.Net.Http.Headers;
 using System.Net;
 using System.Net.Http;
-
+using System.Text;
+using System.Collections.Generic;
+using System.Collections;
 namespace MusicApi.Controllers
 {
 
@@ -22,7 +25,7 @@ namespace MusicApi.Controllers
 
 
         [HttpPost(Name = "GetTop10Songs")]
-        public async void GetTopLinks()
+        public async Task<IActionResult> GetTopLinks()
         {
             var httpClient = new HttpClient();
 
@@ -50,20 +53,48 @@ namespace MusicApi.Controllers
             request.Headers.TryAddWithoutValidation("Cookie", "YSC=oJSblTAgE2Y; VISITOR_INFO1_LIVE=0zWqoewM77A");
 
 
-            string jsontext = @"{ {""context"":{""client"":{""clientName"":""WEB_MUSIC_ANALYTICS"",""clientVersion"":""0.2"",""hl"":""en"",""gl"":""IN"",""experimentIds"":[],""experimentsToken"":"""",""theme"":""MUSIC""},""capabilities"":{},""request"":{""internalExperimentFlags"":[]}},""browseId"":""FEmusic_analytics_charts_home"",""query"":""chart_params_type=WEEK&perspective=CHART&flags=viral_video_chart&selected_chart=TRACKS&chart_params_id=weekly%3A0%3A0%3Ain""} }";
-
-            JObject jsonobj = JObject.Parse(jsontext);
-            request.Content = new StringContent(jsonobj, null, "application/json");
-            request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
-
+            var jsonString = @"{'context':{'client':{'clientName':'WEB_MUSIC_ANALYTICS','clientVersion':'0.2','hl':'en','gl':'IN','experimentIds':[],'experimentsToken':'','theme':'MUSIC'},'capabilities':{},'request':{'internalExperimentFlags':[]}},'browseId':'FEmusic_analytics_charts_home','query':'chart_params_type=WEEK&perspective=CHART&flags=viral_video_chart'}";
+            request.Content = new StringContent(jsonString);
 
             var response = await httpClient.SendAsync(request);
 
-
             var jsonData = response.Content.ReadAsStringAsync();
-            System.IO.File.WriteAllText("output.txt", jsonData.Result);
+
+            string result = jsonData.Result;
+
+            List<MusicMeta> musiclist = filter(result);
+
+            return Ok(musiclist);
+        }
 
 
+        public static List<MusicMeta> filter(string result)
+        {
+            List<MusicMeta> musiclist = new List<MusicMeta>();
+            string[] arr = result.Split("videos")[1].Split("\"id\":");
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                string id;
+                string name;
+                string thumbnail;
+                string url;
+
+                id = arr[i].Split(",")[0].TrimStart();
+                id = id.Replace("\"", "");
+                name = arr[i].Split("\"title\": ")[1].Split("\",")[0].Replace("\"", "");
+                thumbnail = $"https://i.ytimg.com/vi/{id}/maxresdefault.jpg";
+                url = $"https://www.youtube.com/watch?v={id}";
+
+                MusicMeta mobj = new MusicMeta();
+                mobj.Url = url;
+                mobj.SongName = name;
+                mobj.thumbnail = thumbnail;
+
+                musiclist.Add(mobj);
+            }
+
+            return musiclist;
         }
 
 
