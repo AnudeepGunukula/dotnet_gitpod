@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Collections.Generic;
 using System.Collections;
+using MusicApi.Models;
 namespace MusicApi.Controllers
 {
 
@@ -23,9 +24,27 @@ namespace MusicApi.Controllers
             this._music = music;
         }
 
+        [HttpPost(Name = "SearchSong")]
+        public async void SearchSong(string songName)
+        {
+            string url = $"https://www.google.com/search?client=firefox-b-d&q={songName}+song";
+            var httpClient = new HttpClient();
+            var request = new HttpRequestMessage(new HttpMethod("GET"), url);
+            request.Headers.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0");
+            request.Headers.TryAddWithoutValidation("Accept", "*/*");
+            request.Headers.TryAddWithoutValidation("Accept-Language", "en-US,en;q=0.5");
 
-        [HttpPost(Name = "GetTop10Songs")]
-        public async Task<IActionResult> GetTopLinks()
+            var response = await httpClient.SendAsync(request);
+
+            var jsonData = response.Content.ReadAsStringAsync();
+            string result = jsonData.Result;
+
+            Search(result);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetTrendingSongs()
         {
             var httpClient = new HttpClient();
 
@@ -97,6 +116,21 @@ namespace MusicApi.Controllers
             return musiclist;
         }
 
+
+        public static void Search(string result)
+        {
+            System.IO.File.WriteAllText("output.txt", result);
+            string url = "\"https://www.youtube.com/watch?v=";
+            string splitter = $"href={url}";
+            string[] arr = result.Split(splitter);
+            for (int i = 1; i < arr.Length; i++)
+            {
+                System.IO.File.WriteAllText($"output{i}.txt", arr[i]);
+                if (i == 3)
+                    break;
+
+            }
+        }
 
     }
 }

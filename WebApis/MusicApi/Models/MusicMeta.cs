@@ -1,12 +1,15 @@
-namespace MusicApi;
-
-public class MusicMeta
+namespace MusicApi.Models
 {
 
-    public string Url { get; set; }
+    public class MusicMeta
+    {
 
-    public string? SongName { get; set; }
+        public string Url { get; set; }
 
-    public string? thumbnail { get; set; }
+        public string? SongName { get; set; }
+
+        public string? thumbnail { get; set; }
+
+    }
 
 }

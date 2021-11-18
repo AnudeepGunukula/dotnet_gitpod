@@ -33,4 +33,3 @@
 /workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/System.Json.dll
 /workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/JObject.dll
 /workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/Json.Net.dll
-/workspace/dotnet_gitpod/WebApis/MusicApi/bin/Debug/net6.0/output.json
