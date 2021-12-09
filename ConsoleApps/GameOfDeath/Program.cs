@@ -2,8 +2,32 @@ using System;
 
 public class Program
 {
+
+    // public static int[,] GetMatrix()
+    // {
+    //     int x, y;
+    //     System.Console.Write("Enter the no.of rows: ");
+    //     x = Convert.ToInt32(Console.ReadLine());
+    //     System.Console.Write("Enter the no.of columns: ");
+    //     y = Convert.ToInt32(Console.ReadLine());
+    //     int[,] matrix = new int[x, y];
+
+    //     for (int i = 0; i < x; i++)
+    //     {
+    //         for (int j = 0; j < y; j++)
+    //         {
+    //             matrix[i, j] = Convert.ToInt32(Console.ReadLine());
+    //         }
+    //     }
+
+    //     return matrix;
+
+    // }
+
     static void Main()
     {
+
+        // int[,] matrix = GetMatrix();
 
         int[,] matrix = new int[,]{
                { 0, 1, 1, 0, 0, 0, 1 },
@@ -15,7 +39,7 @@ public class Program
                 { 0, 0, 1, 0, 1, 0, 1 }
         };
 
-        Console.WriteLine("Matrix Before");
+        Console.WriteLine("\nMatrix Before");
         printMatrix(matrix);
         updateMatrix(matrix);
         System.Console.WriteLine();
@@ -77,7 +101,7 @@ public class Program
     private static void updateDeadCell(int x, int y, int[,] matrix)
     {
 
-        if (willResurrect(x, y, matrix))
+        if (willRevive(x, y, matrix))
         {
             matrix[x, y] = 1;
         }
@@ -139,7 +163,7 @@ public class Program
     }
 
 
-    private static bool willResurrect(int x, int y, int[,] matrix)
+    private static bool willRevive(int x, int y, int[,] matrix)
     {
 
         int livingCells = sumNeighborsPreviousLine(x, y, matrix);
