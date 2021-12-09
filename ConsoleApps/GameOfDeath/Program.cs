@@ -174,9 +174,9 @@ public class Program
 
 
 
-    private static bool isValidIndex(int index, int[] line)
+    private static bool isValidIndex(int index, int[] row)
     {
-        return index > 0 && index < line.Length;
+        return index > 0 && index < row.Length;
     }
 
 
