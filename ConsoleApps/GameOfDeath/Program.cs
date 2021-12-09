@@ -39,12 +39,12 @@ public class Program
                 { 0, 0, 1, 0, 1, 0, 1 }
         };
 
-        Console.WriteLine("\nMatrix Before");
+        Console.WriteLine("\nMatrix Before rules");
         printMatrix(matrix);
         updateMatrix(matrix);
         System.Console.WriteLine();
         System.Console.WriteLine();
-        Console.WriteLine("Matrix After");
+        Console.WriteLine("Matrix After rules");
         printMatrix(matrix);
         Console.WriteLine();
     }
