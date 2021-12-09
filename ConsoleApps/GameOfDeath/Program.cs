@@ -30,7 +30,7 @@ public class Program
         // int[,] matrix = GetMatrix();
 
         int[,] matrix = new int[,]{
-               { 0, 1, 1, 0, 0, 0, 1 },
+               { 0, 1, 0, 0, 0, 0, 1 },
                 { 0, 1, 0, 0, 1, 1, 1 },
                 { 1, 1, 1, 0, 1, 0, 1 },
                 { 0, 1, 0, 0, 0, 0, 1 },
@@ -142,9 +142,9 @@ public class Program
     {
 
         int previous = (isValidIndex(y - 1, GetRow(matrix, x))) ? matrix[x, y - 1] : 0;
-        int same = (isValidIndex(y, GetRow(matrix, x))) ? matrix[x, y] : 0;
+        // int same = (isValidIndex(y, GetRow(matrix, x))) ? matrix[x, y] : 0;
         int next = (isValidIndex(y + 1, GetRow(matrix, x))) ? matrix[x, y + 1] : 0;
-        return previous + same + next;
+        return previous + next;
     }
 
 
