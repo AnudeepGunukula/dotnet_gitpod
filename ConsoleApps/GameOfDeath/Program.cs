@@ -5,51 +5,53 @@ public class Program
     static void Main()
     {
 
-        int[,] cellsData = new int[,]{
-                {1, 1, 1, 0, 1, 0, 1},	// expected {1, 0, 1, 1, 1, 1, 1} // because of updates
-				{0, 1, 1, 0, 0, 0, 1},
-               // {0, 1, 0, 0, 1, 1, 1},
-                //{0, 1, 0, 0, 0, 0, 1}, 	// expected {1, 1, 1, 0, 0, 1, 1}
-				{0, 1, 0, 0, 0, 0, 1},
-                {0, 0, 1, 0, 1, 0, 1},
-              //  {0, 0, 0, 0, 1, 0, 1}	// expected {0, 0, 0, 1, 0, 1, 0}			
-		};
+        int[,] matrix = new int[,]{
+               { 0, 1, 1, 0, 0, 0, 1 },
+                { 0, 1, 0, 0, 1, 1, 1 },
+                { 1, 1, 1, 0, 1, 0, 1 },
+                { 0, 1, 0, 0, 0, 0, 1 },
+                { 0, 0, 0, 0, 1, 0, 1 },
+                { 0, 1, 0, 0, 0, 0, 1 },
+                { 0, 0, 1, 0, 1, 0, 1 }
+        };
 
-        Console.WriteLine("Before");
-        printData(cellsData);
-        processData(cellsData);
-        Console.WriteLine("\n\nAfter");
-        printData(cellsData);
+        Console.WriteLine("Matrix Before");
+        printMatrix(matrix);
+        updateMatrix(matrix);
+        System.Console.WriteLine();
+        System.Console.WriteLine();
+        Console.WriteLine("Matrix After");
+        printMatrix(matrix);
         Console.WriteLine();
     }
 
-    private static int[] GetRow(int[,] celldata, int row)
+    private static int[] GetRow(int[,] matrix, int row)
     {
-        int[] cellrow = new int[celldata.GetLength(1)];
-        for (int i = 0; i < celldata.GetLength(1); i++)
+        int[] cellrow = new int[matrix.GetLength(1)];
+        for (int i = 0; i < matrix.GetLength(1); i++)
         {
-            cellrow[i] = celldata[row, i];
+            cellrow[i] = matrix[row, i];
         }
         return cellrow;
     }
 
 
 
-    private static void processData(int[,] cellsData)
+    private static void updateMatrix(int[,] matrix)
     {
 
-        for (int i = 0; i < cellsData.GetLength(0); i++)
+        for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            for (int j = 0; j <cellsData.GetLength(1); j++)
+            for (int j = 0; j < matrix.GetLength(1); j++)
             {
 
-                if (cellsData[i, j] == 1)
+                if (matrix[i, j] == 1)
                 {
-                    updateLivingCell(i, j, cellsData);
+                    updateLivingCell(i, j, matrix);
                 }
                 else
                 {
-                    updateDeadCell(i, j, cellsData);
+                    updateDeadCell(i, j, matrix);
                 }
             }
         }
@@ -58,91 +60,91 @@ public class Program
 
 
 
-    private static void updateLivingCell(int x, int y, int[,] cellsData)
+    private static void updateLivingCell(int x, int y, int[,] matrix)
     {
 
-        if (willSurvive(x, y, cellsData))
+        if (willSurvive(x, y, matrix))
         {
-            cellsData[x, y] = 1;
+            matrix[x, y] = 1;
         }
         else
         {
-            cellsData[x, y] = 0;
+            matrix[x, y] = 0;
         }
 
     }
 
-    private static void updateDeadCell(int x, int y, int[,] cellsData)
+    private static void updateDeadCell(int x, int y, int[,] matrix)
     {
 
-        if (willResurrect(x, y, cellsData))
+        if (willResurrect(x, y, matrix))
         {
-            cellsData[x, y] = 1;
+            matrix[x, y] = 1;
         }
         else
         {
-            cellsData[x, y] = 0;
+            matrix[x, y] = 0;
         }
     }
 
-    private static bool willSurvive(int x, int y, int[,] cellsData)
+    private static bool willSurvive(int x, int y, int[,] matrix)
     {
 
-        int livingCells = sumNeighborsPreviousLine(x, y, cellsData);
-        livingCells += sumNeighborsSameLine(x, y, cellsData);
-        livingCells += sumNeighborsNextLine(x, y, cellsData);
+        int livingCells = sumNeighborsPreviousLine(x, y, matrix);
+        livingCells += sumNeighborsSameLine(x, y, matrix);
+        livingCells += sumNeighborsNextLine(x, y, matrix);
 
         return (livingCells == 2 || livingCells == 3);
 
     }
 
 
-    private static int sumNeighborsNextLine(int x, int y, int[,] cellsData)
+    private static int sumNeighborsNextLine(int x, int y, int[,] matrix)
     {
         int livingCellsSum = 0;
 
-        if (x < cellsData.GetLength(0) - 1)
+        if (x < matrix.GetLength(0) - 1)
         {
-            int previous = (isValidIndex(y - 1, GetRow(cellsData, x + 1))) ? cellsData[x + 1, y - 1] : 0;
-            int same = (isValidIndex(y, GetRow(cellsData, x + 1))) ? cellsData[x + 1, y] : 0;
-            int next = (isValidIndex(y + 1, GetRow(cellsData, x + 1))) ? cellsData[x + 1, y + 1] : 0;
+            int previous = (isValidIndex(y - 1, GetRow(matrix, x + 1))) ? matrix[x + 1, y - 1] : 0;
+            int same = (isValidIndex(y, GetRow(matrix, x + 1))) ? matrix[x + 1, y] : 0;
+            int next = (isValidIndex(y + 1, GetRow(matrix, x + 1))) ? matrix[x + 1, y + 1] : 0;
             livingCellsSum = previous + same + next;
         }
         return livingCellsSum;
     }
 
 
-    private static int sumNeighborsSameLine(int x, int y, int[,] cellsData)
+    private static int sumNeighborsSameLine(int x, int y, int[,] matrix)
     {
 
-        int previous = (isValidIndex(y - 1, GetRow(cellsData, x))) ? cellsData[x, y - 1] : 0;
-        int same = (isValidIndex(y, GetRow(cellsData, x))) ? cellsData[x, y] : 0;
-        int next = (isValidIndex(y + 1, GetRow(cellsData, x))) ? cellsData[x, y + 1] : 0;
+        int previous = (isValidIndex(y - 1, GetRow(matrix, x))) ? matrix[x, y - 1] : 0;
+        int same = (isValidIndex(y, GetRow(matrix, x))) ? matrix[x, y] : 0;
+        int next = (isValidIndex(y + 1, GetRow(matrix, x))) ? matrix[x, y + 1] : 0;
         return previous + same + next;
     }
 
 
-    private static int sumNeighborsPreviousLine(int x, int y, int[,] cellsData)
+    private static int sumNeighborsPreviousLine(int x, int y, int[,] matrix)
     {
         int livingCellsSum = 0;
 
         if (x > 0)
         {
-            int previous = (isValidIndex(y - 1, GetRow(cellsData, x - 1))) ? cellsData[x - 1, y - 1] : 0;
-            int same = (isValidIndex(y, GetRow(cellsData, x - 1))) ? cellsData[x - 1, y] : 0;
-            int next = (isValidIndex(y + 1, GetRow(cellsData, x - 1))) ? cellsData[x - 1, y + 1] : 0;
+            int previous = (isValidIndex(y - 1, GetRow(matrix, x - 1))) ? matrix[x - 1, y - 1] : 0;
+            int same = (isValidIndex(y, GetRow(matrix, x - 1))) ? matrix[x - 1, y] : 0;
+            int next = (isValidIndex(y + 1, GetRow(matrix, x - 1))) ? matrix[x - 1, y + 1] : 0;
             livingCellsSum = previous + same + next;
         }
         return livingCellsSum;
     }
 
 
-    private static bool willResurrect(int x, int y, int[,] cellsData)
+    private static bool willResurrect(int x, int y, int[,] matrix)
     {
 
-        int livingCells = sumNeighborsPreviousLine(x, y, cellsData);
-        livingCells += sumNeighborsSameLine(x, y, cellsData);
-        livingCells += sumNeighborsNextLine(x, y, cellsData);
+        int livingCells = sumNeighborsPreviousLine(x, y, matrix);
+        livingCells += sumNeighborsSameLine(x, y, matrix);
+        livingCells += sumNeighborsNextLine(x, y, matrix);
         return livingCells == 3;
     }
 
@@ -156,7 +158,7 @@ public class Program
 
 
 
-    private static void printData(int[,] matrix)
+    private static void printMatrix(int[,] matrix)
     {
 
         for (int i = 0; i < matrix.GetLength(0); i++)
