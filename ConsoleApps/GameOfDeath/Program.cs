@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class Program
 {
@@ -8,11 +8,11 @@ public class Program
         int[,] cellsData = new int[,]{
                 {1, 1, 1, 0, 1, 0, 1},	// expected {1, 0, 1, 1, 1, 1, 1} // because of updates
 				{0, 1, 1, 0, 0, 0, 1},
-                {0, 1, 0, 0, 1, 1, 1},
-                {0, 1, 0, 0, 0, 0, 1}, 	// expected {1, 1, 1, 0, 0, 1, 1}
+               // {0, 1, 0, 0, 1, 1, 1},
+                //{0, 1, 0, 0, 0, 0, 1}, 	// expected {1, 1, 1, 0, 0, 1, 1}
 				{0, 1, 0, 0, 0, 0, 1},
                 {0, 0, 1, 0, 1, 0, 1},
-                {0, 0, 0, 0, 1, 0, 1}	// expected {0, 0, 0, 1, 0, 1, 0}			
+              //  {0, 0, 0, 0, 1, 0, 1}	// expected {0, 0, 0, 1, 0, 1, 0}			
 		};
 
         Console.WriteLine("Before");
@@ -25,11 +25,10 @@ public class Program
 
     private static int[] GetRow(int[,] celldata, int row)
     {
-        int[] cellrow = new int[7];
-        for (int i = 0; i < 7; i++)
+        int[] cellrow = new int[celldata.GetLength(1)];
+        for (int i = 0; i < celldata.GetLength(1); i++)
         {
             cellrow[i] = celldata[row, i];
-            Console.WriteLine(" here " + cellrow[i]);
         }
         return cellrow;
     }
@@ -39,9 +38,9 @@ public class Program
     private static void processData(int[,] cellsData)
     {
 
-        for (int i = 0; i < cellsData.Length; i++)
+        for (int i = 0; i < cellsData.GetLength(0); i++)
         {
-            for (int j = 0; j < GetRow(cellsData, i).Length; j++)
+            for (int j = 0; j <cellsData.GetLength(1); j++)
             {
 
                 if (cellsData[i, j] == 1)
@@ -102,7 +101,7 @@ public class Program
     {
         int livingCellsSum = 0;
 
-        if (x < cellsData.Length - 1)
+        if (x < cellsData.GetLength(0) - 1)
         {
             int previous = (isValidIndex(y - 1, GetRow(cellsData, x + 1))) ? cellsData[x + 1, y - 1] : 0;
             int same = (isValidIndex(y, GetRow(cellsData, x + 1))) ? cellsData[x + 1, y] : 0;
@@ -164,11 +163,10 @@ public class Program
         {
             for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                Console.Write(matrix[i, j] + "\t");
+                Console.Write(matrix[i, j] + " ");
             }
             Console.WriteLine();
         }
 
     }
 }
-
