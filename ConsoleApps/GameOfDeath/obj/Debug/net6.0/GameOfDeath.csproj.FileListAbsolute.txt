@@ -1,0 +1,15 @@
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/bin/Debug/net6.0/GameOfDeath
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/bin/Debug/net6.0/GameOfDeath.deps.json
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/bin/Debug/net6.0/GameOfDeath.runtimeconfig.json
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/bin/Debug/net6.0/GameOfDeath.dll
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/bin/Debug/net6.0/ref/GameOfDeath.dll
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/bin/Debug/net6.0/GameOfDeath.pdb
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.csproj.AssemblyReference.cache
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.AssemblyInfoInputs.cache
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.AssemblyInfo.cs
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.csproj.CoreCompileInputs.cache
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.dll
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/ref/GameOfDeath.dll
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.pdb
+/workspace/dotnet_gitpod/ConsoleApps/GameOfDeath/obj/Debug/net6.0/GameOfDeath.genruntimeconfig.cache
